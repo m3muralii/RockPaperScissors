@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<h2>Rock Paper Scissors Game on Console</h2>
+<script>
+let playerScore=0;
+let computerScore=0;
+function computerPlay(){
+    let arr=["Rock","Paper","Scissors"];
+    return arr[Math.floor(Math.random()*arr.length)]
+}
+function playRound(playerSelection,computerSelection){
+    let arr=["Rock","Paper","Scissors"];
+    if(playerSelection==computerSelection){
+        playerScore++;
+        computerScore++;
+        return "Its a Tie!!!"
+    }
+
+    if(playerSelection=="Rock"){
+        if(computerSelection=="Paper"){
+            computerScore++;
+            return"Computer wins"
+        }
+        if(computerSelection=="Scissors"){
+            playerScore++;
+            return "player Wins"
+        }
+    }
+    else if(playerSelection=="Paper"){
+        if(computerSelection=="Scissors"){
+            computerScore++;
+            return"Computer wins"
+        }
+        if(computerSelection=="Rock"){
+            playerScore++;
+            return "player Wins"
+        }
+    }
+    else{
+        if(computerSelection=="Rock"){
+            computerScore++;
+            return"Computer wins"
+        }
+        if(computerSelection=="Paper"){
+            playerScore++;
+            return "player Wins"
+        }
+    }
+    
+}
+const computer=computerPlay();
+console.log(`The computer chose ${computer}`);
+console.log(playRound(prompt("Enter your choice"),computer));
+</script>
